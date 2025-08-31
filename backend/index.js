@@ -18,7 +18,7 @@ let app=express();
 let server=http.createServer(app)
 export const io=new Server(server,{
   cors: {
-  origin:"https://linkedin-frontend-x1oy.onrender.com",
+  origin:"http://localhost:5173",
   credentials:true,
    }
 
@@ -26,7 +26,7 @@ export const io=new Server(server,{
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
-  origin:"https://linkedin-frontend-x1oy.onrender.com",
+  origin:"http://localhost:5173",
   credentials:true,
 }))
 
