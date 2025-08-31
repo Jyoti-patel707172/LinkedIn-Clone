@@ -5,7 +5,7 @@ import io from "socket.io-client"
 import { userDataContext } from '../context/UserContext'
 import { useNavigate } from 'react-router-dom'
 
-const socket = io("https://linkedin-backend-vrmf.onrender.com", { withCredentials: true });
+const socket = io("http://localhost:8000", { withCredentials: true });
 
 function ConnectionButton({userId}) {
   
