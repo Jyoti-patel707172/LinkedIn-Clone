@@ -3,7 +3,7 @@ export const authDataContext=React.createContext();
 
 
 const AuthContext = ({children}) => {
-  const serverUrl="https://linkedin-backend-vrmf.onrender.com"
+  const serverUrl="http://localhost:8000"
   let value={
            serverUrl
   };
