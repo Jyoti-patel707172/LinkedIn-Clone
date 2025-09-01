@@ -3,7 +3,7 @@ export const authDataContext=React.createContext();
 
 
 const AuthContext = ({children}) => {
-  const serverUrl="http://localhost:8000"
+  const serverUrl="https://linkedin-clone-backend-hpn4.onrender.com"
   let value={
            serverUrl
   };
