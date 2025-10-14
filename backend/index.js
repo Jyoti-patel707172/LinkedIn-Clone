@@ -26,7 +26,7 @@ export const io=new Server(server,{
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
-  origin:"https://linkedin-clone-frontend-4ncn.onrender.com",
+  origin:"https://linkedin-clone-frontend1.onrender.com",
   credentials:true,
 }))
 
