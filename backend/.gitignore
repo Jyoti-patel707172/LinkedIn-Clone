@@ -26,3 +26,5 @@ Thumbs.db
 # IDE / editor settings (optional)
 .vscode/
 .idea/
+
+**/.DS_Store
