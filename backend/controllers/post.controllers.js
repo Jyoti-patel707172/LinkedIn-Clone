@@ -128,3 +128,39 @@ export const deletePost = async (req, res) => {
     return res.status(500).json({ message: `delete error ${error}` });
   }
 };
+// UPDATE POST
+export const updatePost = async (req, res) => {
+  try {
+    const postId = req.params.id;
+    const userId = req.userId;
+
+    let post = await Post.findById(postId);
+    if (!post) return res.status(404).json({ message: "Post not found" });
+
+    // केवल author को ही edit करने का अधिकार
+    if (post.author.toString() !== userId.toString())
+      return res.status(403).json({ message: "Not authorized" });
+
+    if (req.body.description) post.description = req.body.description;
+
+    if (req.file) {
+      const imageUrl = await uploadOnCloudinary(req.file.path);
+      post.image = imageUrl;
+    }
+
+    await post.save();
+
+    // Populate author info for frontend
+    const populatedPost = await post.populate(
+      "author",
+      "firstName lastName profileImage userName headline"
+    );
+
+    // Emit updated post for realtime
+    io.emit("postUpdated", populatedPost);
+
+    return res.status(200).json(populatedPost);
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+};

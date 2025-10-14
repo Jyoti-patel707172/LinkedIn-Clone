@@ -8,11 +8,13 @@ import { userDataContext } from './context/UserContext.jsx'
 import Network from './pages/Network.jsx'
 import Profile from './pages/Profile.jsx'
 import Notification from './pages/Notification.jsx'
+import Ai from './pages/Ai.jsx'
 
 function App() {
   let {userData}=useContext(userDataContext)
   return (
-    <Routes>
+    <div>
+      <Routes>
       <Route path='/' element={userData?<Home/>:<Navigate to="/login"/>} /> 
       <Route path='/signup' element={userData?<Navigate to ="/"/>:<Signup/>} />
       <Route path='/login' element={userData?<Navigate to ="/"/>:<Login/>} />
@@ -20,6 +22,9 @@ function App() {
       <Route path='/profile' element={userData?<Profile />:< Navigate to ="/login"/>}/>
       <Route path='/notification' element={userData?<Notification />:< Navigate to ="/login"/>}/>
     </Routes>
+    <Ai/>
+    </div>
+    
   )
 }
 
