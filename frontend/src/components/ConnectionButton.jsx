@@ -5,7 +5,7 @@ import io from "socket.io-client"
 import { userDataContext } from '../context/UserContext'
 import { useNavigate } from 'react-router-dom'
 
-const socket = io("https://linkedin-clone-backend-hpn4.onrender.com", { withCredentials: true });
+const socket = io("https://linkedin-clone-backend1.onrender.com", { withCredentials: true });
 
 function ConnectionButton({userId}) {
   
