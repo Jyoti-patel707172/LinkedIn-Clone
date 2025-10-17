@@ -18,7 +18,7 @@ let app=express();
 let server=http.createServer(app)
 export const io=new Server(server,{
   cors: {
-  origin:"https://linkedin-clone-frontend-4ncn.onrender.com",
+  origin:"https://linkedin-clone-frontend1.onrender.com",
   credentials:true,
    }
 
