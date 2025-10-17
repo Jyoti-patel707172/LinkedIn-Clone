@@ -31,7 +31,7 @@ export const signUp=async(req,res)=>{
       httpOnly:true,
       maxAge:7*24*60*60*1000,
       sameSite:"None",
-      secure:process.env.NODE_ENV==="production"
+      secure:true"
      });
       let { password: pass, ...rest } = user._doc;
 return res.status(201).json(rest);
@@ -63,7 +63,7 @@ export const login=async(req,res)=>{
       httpOnly:true,
       maxAge:7*24*60*60*1000,
       sameSite:"None",
-      secure:process.env.NODE_ENV==="production"
+      secure:true
      });
       let { password: pass, ...rest } = user._doc;
 return res.status(201).json(rest);
